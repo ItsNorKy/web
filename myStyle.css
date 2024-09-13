@@ -1,0 +1,19 @@
+.tieude {
+    color: aqua;
+    font-family: Arial;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.noidung {
+    color: purple;
+    font-family: Arial;
+    font-style: italic;
+    font-size: 14pt;
+}
+
+.hyperlink {
+    font-style: italic;
+    text-decoration: none;
+    color: greenyellow;
+}
