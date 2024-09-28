@@ -50,54 +50,45 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 
-
-        function calc() {
-
-        var a = document.getElementById("fname").value
-        var b = document.getElementById("lname").value
-        var current_year=new Date().getFullYear();
+        function calc()
+    {
+        var a = document.getElementById("a").value
+        var b = document.getElementById("b").value
 
         if (isNaN(a) || isNaN(b)) {
             
             alert ("Giá trị bạn vừa nhập không phải là số, vui lòng kiểm tra lại")
         
-        } else if (a == "" || b == ""){
+        } else if (a == "" || b == "") { 
 
-            alert ("Vui lòng nhập giá trị trước khi thực hiện phép tính")
-
-        } else if (a > 12 || a < 1) {
-
-            alert("Số tháng không hợp lệ, vui lòng kiểm tra lại")
-
-        } else if (b.length != 4 || b < 1924 || b > current_year) {
-
-            alert("Số năm không hợp lệ, vui lòng kiểm tra lại. Lưu ý: phép tính chỉ hỗ trợ kể từ năm 1920 đến hiện tại")
+            alert ("Vui lòng nhập giá trị trước khi thực hiện phép toán")
 
         } else {
 
-            let result = new Date(b, a, 0).getDate()
+            function gcd(a, b) { 
+             if (a == 0) 
+            return b; 
+            return gcd(b % a, a); 
+            } 
 
-            alert("Tổng số ngày trong tháng " + a + " của năm " + b + " là " + result);
+            alert(`Kết quả: ${gcd(a,b)}`)
 
         }
-
     }
 
     </script>
     <div id="mySidenav" class="sidenav">
-        <a href="./trang1.html">Phép tính cơ bản</a>
-        <a href="./trang2.html">Giải phương trình bậc nhất</a>
-        <a href="./trang3.html">Tính số ngày một tháng</a>
+        <a href="./thanh vien gia dinh/trang1.html">Tính tổng từ 1 đến n / chẵn, lẻ</a>
+        <a href="./thanh vien gia dinh/trang2.html">Kiểm tra n có phải số nguyên tố không?</a>
+        <a href="./thanh vien gia dinh/trang3.html">Tìm UCLN của 2 số a và b </a>
       </div>
       <div id="center">
-        <div class="text">Tính số ngày của một tháng/năm</div>
+        <div class="text">Tìm UCLN của 2 số a và b</div>
         <form>
             <label for="fname"></label>
-            <input type="text" id="fname" name="firstname" placeholder="Tháng..">
-
-            <label for="lname"></label>
-            <input type="text" id="lname" name="lastname" placeholder="Năm (Trong khoảng 1924 - Hiện Tại)..">
-            <s></s>
+            <input type="text" id="a" name="a" placeholder="Giá trị a..">
+            <input type="text" id="b" name="b" placeholder="Giá trị b..">
+            </select>
             <input type="button" value="Submit" onclick=calc()>
           </form>
       </div>

@@ -54,39 +54,50 @@
     {
         var ddl = document.getElementById("option");
         var selectedValue = ddl.options[ddl.selectedIndex].value;
-        var a = document.getElementById("fname").value
-        var b = document.getElementById("lname").value
+        var n = document.getElementById("n").value
 
-        if (isNaN(a) || isNaN(b)) {
+        if (isNaN(n) || n < 1) {
             
-            alert ("Giá trị bạn vừa nhập không phải là số, vui lòng kiểm tra lại")
+            alert ("Giá trị bạn vừa nhập không hợp lệ, vui lòng kiểm tra lại")
         
-        } else if (a == "" || b == ""){
+        } else if (n == "") {
 
             alert ("Vui lòng nhập giá trị trước khi thực hiện phép toán")
-        }
-            
-            else {
 
-            if (selectedValue == "Cong") {
+        } else {
 
-            let cong = +a + +b
-            alert(`Kết quả: ${cong}`)
+            if (selectedValue == "Default") {
 
-            } else if (selectedValue == "Tru") {
+                var sum = 0
+                var a = 1
 
-            let tru = +a - +b
-            alert(`Kết quả: ${tru}`)
+                while (a <= n) {
+                    sum += a++;
+                } 
 
-            } else if (selectedValue == "Nhan") {
+            alert(`Kết quả: ${sum}`)
 
-            let nhan = +a * +b
-            alert(`Kết quả: ${nhan}`)
+            } else if (selectedValue == "Chan") {
 
-            } else if (selectedValue == "Chia") {
+                let sum = 0
 
-            let chia = +a / +b
-            alert(`Kết quả: ${chia}`)
+                for (i=1;i<=n;i++) {
+                    if (i%2==0) {
+                        sum=sum+i
+                    }
+                }
+                
+            alert(`Kết quả: ${sum}`)
+
+            } else if (selectedValue == "Le") {
+
+                let sum = 0
+
+                for (i=1;i<=n;i+=2) {
+                        sum += i
+                }
+                
+            alert(`Kết quả: ${sum}`)
 
             } else {
 
@@ -99,25 +110,21 @@
 
     </script>
     <div id="mySidenav" class="sidenav">
-        <a href="./trang1.html">Phép tính cơ bản</a>
-        <a href="./trang2.html">Giải phương trình bậc nhất</a>
-        <a href="./trang3.html">Tính số ngày một tháng</a>
+        <a href="./thanh vien gia dinh/trang1.html">Tính tổng từ 1 đến n / chẵn, lẻ</a>
+        <a href="./thanh vien gia dinh/trang2.html">Kiểm tra n có phải số nguyên tố không?</a>
+        <a href="./thanh vien gia dinh/trang3.html">Tìm UCLN của 2 số a và b </a>
       </div>
       <div id="center">
-        <div class="text">Phép tính cơ bản</div>
+        <div class="text">Tính tổng từ 1 đến n / chẵn, lẻ</div>
         <form>
-            <label for="fname"></label>
-            <input type="text" id="fname" name="firstname" placeholder="Giá trị 1..">
-
-            <label for="lname"></label>
-            <input type="text" id="lname" name="lastname" placeholder="Giá trị 2..">
+            <label for="n"></label>
+            <input type="text" id="n" name="firstname" placeholder="Giá trị n..">
 
             <label for="chon"></label>
             <select id="option" name="Option">
-            <option value="Cong">Cộng</option>
-            <option value="Tru">Trừ</option>
-            <option value="Nhan">Nhân</option>
-            <option value="Chia">Chia</option>
+            <option value="Default">Tính tổng từ 1 đến n</option>
+            <option value="Chan">Tính tổng các số chẵn từ 1 đến n </option>
+            <option value="Le">Tính tổng các số lẻ từ 1 đến n </option>
             </select>
              <input type="button" value="Submit" onclick=calc()>
           </form>
