@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        input[type=text], select {
+          width: 50%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          margin-right: auto;
+          margin-left: auto;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=button] {
+          width: 50%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        
+        input[type=button]:hover {
+          background-color: #45a049;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        
+        </style>
+<head>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <img class="center" src="https://www.pngall.com/wp-content/uploads/15/Black-Myth-Wukong-Logo-PNG.png">
+    <script>
+        function openNav() 
+    {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+        function closeNav() 
+    {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+        function calc()
+    {
+        var ddl = document.getElementById("option");
+        var selectedValue = ddl.options[ddl.selectedIndex].value;
+        var n = document.getElementById("n").value
+
+        if (isNaN(n) || n < 1) {
+            
+            alert ("Giá trị bạn vừa nhập không hợp lệ, vui lòng kiểm tra lại")
+        
+        } else if (n == "") {
+
+            alert ("Vui lòng nhập giá trị trước khi thực hiện phép toán")
+
+        } else {
+
+            if (selectedValue == "Default") {
+
+                var sum = 0
+                var a = 1
+
+                while (a <= n) {
+                    sum += a++;
+                } 
+
+            alert(`Kết quả: ${sum}`)
+
+            } else if (selectedValue == "Chan") {
+
+                let sum = 0
+
+                for (i=1;i<=n;i++) {
+                    if (i%2==0) {
+                        sum=sum+i
+                    }
+                }
+                
+            alert(`Kết quả: ${sum}`)
+
+            } else if (selectedValue == "Le") {
+
+                let sum = 0
+
+                for (i=1;i<=n;i+=2) {
+                        sum += i
+                }
+                
+            alert(`Kết quả: ${sum}`)
+
+            } else {
+
+            alert(`Đã xảy ra lỗi khi thực hiện phép toán, vui lòng kiểm tra lại giá trị đã nhập`)
+
+            } 
+        }
+
+    }
+
+    </script>
+    <div id="mySidenav" class="sidenav">
+        <a href="./trang1.html">Tính tổng từ 1 đến n / chẵn, lẻ</a>
+        <a href="./trang2.html">Kiểm tra n có phải số nguyên tố không?</a>
+        <a href="./trang3.html">Tìm UCLN của 2 số a và b </a>
+      </div>
+      <div id="center">
+        <div class="text">Tính tổng từ 1 đến n / chẵn, lẻ</div>
+        <form>
+            <label for="n"></label>
+            <input type="text" id="n" name="firstname" placeholder="Giá trị n..">
+
+            <label for="chon"></label>
+            <select id="option" name="Option">
+            <option value="Default">Tính tổng từ 1 đến n</option>
+            <option value="Chan">Tính tổng các số chẵn từ 1 đến n </option>
+            <option value="Le">Tính tổng các số lẻ từ 1 đến n </option>
+            </select>
+             <input type="button" value="Submit" onclick=calc()>
+          </form>
+      </div>
+</body>
+</html>
